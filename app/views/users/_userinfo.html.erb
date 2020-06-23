@@ -1,0 +1,23 @@
+<div class="user_info_bar">
+  <h2>User info</h2>
+  <div class="profile-container">
+    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100' %>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td class="break"><%= user.name %></td>
+        </tr>
+        <tr>
+          <td>introduction</td>
+          <td style="word-break : break-all"><%= user.introduction %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% if user.id == current_user.id %>
+      <div class="action row">
+        <p><%= link_to "", edit_user_path(user) , :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench'%></p>
+      </div>
+    <% end %>
+  </div>
+</div>
